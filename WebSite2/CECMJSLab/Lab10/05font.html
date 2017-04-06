@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05font.html</title>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+
+            var x = canvas.width / 2;
+            var y = canvas.height / 2;
+
+            context.font = "30pt Calibir";
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            context.strokeStyle = "blue";
+            context.strokeText("Hello Canvas Text!", x, y);
+
+
+            context.fillStyle = "purple";
+            context.fillText("Hello Canvas Text!", x, y);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color:pink;" width="500" height="400"></canvas>
+</body>
+</html>

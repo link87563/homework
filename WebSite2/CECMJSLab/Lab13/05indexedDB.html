@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05indexedDB.html</title>
+    <script>
+        //alert(!!window.webkitIndexedDB)
+        if (!window.indexedDB) {
+            window.indexedDB = window.webkitIndexedDB || window.mozIndexedDB;
+        }
+
+        if (!window.IDBTransaction) {
+            window.IDBTransaction = window.webkitIDBTransaction || window.mozIDBTransaction;
+        }
+        //alert(!!window.IDBTransaction)
+
+        var db;
+        var version = 1;
+
+        var request = window.indexedDB.open("myDB", version);
+        request.onupgradeneeded = function (e) {
+            db = e.target.result;
+
+            if (db.objectStoreNames.contains("emp")) {
+                alert("emp 已存在");
+            }
+            else {
+                var store = db.createObjectStore("emp", { keyPath: "myKey" });
+            }
+        };
+
+        request.onsuccess = function (e) {
+            db = e.target.result;
+        };
+
+        request.onerror = function (e) {
+            alert("Error!!");
+        }
+
+
+        function save() {
+            var trans = db.transaction("emp", "readwrite");
+            var store = trans.objectStore("emp");
+
+            var keyValue = new Date().getTime();
+            var nameValue = document.getElementById("txtName").value;
+            var mailValue = document.getElementById("txtMail").value;
+
+            var writeRequest = store.add({ myKey: keyValue, name: nameValue, email: mailValue });
+            writeRequest.onerror = function (e) {
+                alert("write error!!");
+            }
+            writeRequest.onsuccess = function (e) {
+                alert("write OK!!");
+                //read();
+            }
+        }
+
+        function read() {
+
+            var trans = db.transaction("emp", "readwrite");
+            var store = trans.objectStore("emp");
+            var cursorRequest = store.openCursor();
+            var str = "<table border='1' width='600px'>"
+            cursorRequest.onsuccess = function (e) {
+                var result = e.target.result;
+                //alert("result name="+result.value.name);   
+
+
+                if (result) {
+
+                    var key = result.value.myKey;
+                    var name = result.value.name;
+                    var email = result.value.email;
+
+                    str += "<tr><td>" + key + "</td><td>" + name + "</td><td>" + email + "</td><td><a href=# onclick=removeItem('" + key + "')>刪除</a></td></tr>";
+                    result.continue();
+
+                    document.getElementById("show").innerHTML = str + "</table>";
+                }   //result    
+
+            }  //curosrRequest
+
+            document.getElementById("show").innerHTML = "";
+        }   //read function
+
+        function removeItem(key) {
+            var trans = db.transaction("emp", "readwrite");
+            var store = trans.objectStore("emp");
+            var deleteRequest = store.delete(parseInt(key));
+            deleteRequest.onsuccess = function (e) {
+                read();
+            }
+        }
+    </script>
+</head>
+
+<body>
+      姓       名 <input type="text" id="txtName"/> <br/>
+      電子郵件 <input type="email" id="txtMail"/><br/>
+      <input type="button" value="save" onclick="save()"/>
+      <input type="button" value="read" onclick="read()"/>
+      <hr />
+      <div id="show"></div>
+</body>
+
+</html>
+
+</head>
+<body>
+
+</body>
+</html>

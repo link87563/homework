@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01functionMethod.html</title>
+    <script>
+        //Method 1
+        function fAdd(a, b) {
+            return (a + b);
+        }
+        document.write("fAdd(20+10)=" + fAdd(20, 10)+"<br>");
+        document.write("fAdd(10)=" + fAdd(10) + "<br>");
+        document.write("fAdd(10,20,30)=" + fAdd(10, 20, 30) + "<br>");
+
+        //Method 2
+        var fAdd2 = function (a, b) {
+            return (a + b);
+        }
+        document.write("fAdd(30+20)=" + fAdd2(30, 20) + "<br>");
+
+        //Method 3
+        var fAdd3 = new Function("a", "b", "return a+b");
+        document.write("fAdd(30+10)=" + fAdd3(30, 10) + "<hr>");
+
+        document.write("fAdd2" + fAdd2 + "<hr>");
+
+        document.write("fAdd" + fAdd + "<hr>");
+        fAdd2 = fAdd;
+        document.write("fAdd2" + fAdd2 + "<hr>");
+        //====================================
+
+        var pansonal = new Object();
+        pansonal.name = "aaa";
+        pansonal.ID = "A123456789";
+        pansonal.age = 22;
+
+        var full = function () { return this.pansonal.name + ":" + this.pansonal.age };
+        document.write(full()+"<br>");
+
+        function full1() { return this.pansonal.name+":"+this.pansonal.ID };
+        document.write(full1() + "<br>");
+        //===================================
+
+        document.write(pansonal.names);
+        if (pansonal.names) {
+            window.alert("sup");
+        }
+        else {
+            window.alert("not sup");
+        }
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>06Calendar.html</title>
+    <script src="Calendar/CombinedCompact/CalendarPopup.js"></script>
+    <script>
+        var cal = new CalendarPopup();
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="date" />
+        <A HREF="#" id="anchorname" onClick="cal.select(document.forms[0].date,'anchorname','yyyy/MM/dd'); return false;">Select</A>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01globalObject.html</title>
+    <script>
+        document.write("eval('1>2')=" + eval('1>2') + "<br>");
+        document.write("isNaN('123a')=" + isNaN('123a') + "<br>");
+        document.write("isNaN('a123')=" + isNaN('a123') + "<br>");
+        document.write("escape('123&chen@iii.org.tw')=" + escape('123&chen@iii.org.tw') + "<br>");
+        document.write("encodeURI('123&chen@iii.org.tw')=" + encodeURI('123&chen@iii.org.tw') + "<br>");
+        document.write("escape('中文')=" + escape('中文') + "<br>");
+        document.write("escape('中')=" + encodeURI('中') + "<br>");
+        document.write("unescape('%u4E2D%u6587')=" + unescape('%u4E2D%u6587') + "<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01dynamicStyle.html</title>
+    <style>
+        .n{
+			color:blue;
+			font-family:Arial;
+			font-size:24px;
+		}
+		.s{
+			color:red;
+			font-family:"Script MT Bold";
+			font-size:36px;
+		}
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementById("h").onmouseover=mouseOver;
+            document.getElementById("h").onmouseout=mouseOut;
+        }
+
+        function mouseOver() {
+            //method 1
+
+            //method 2
+
+        }
+
+        function mouseOut() {
+            //method 1
+
+            //method 2
+
+        }
+    </script>
+</head>
+<body>
+    <h1 id="h" class="n" >this is heading 1</h1>
+</body>
+</html>

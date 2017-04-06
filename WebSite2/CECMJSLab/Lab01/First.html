@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	<script>document.write("Hello <br> JS");</script>
+    <!--<script src="JS.js"></script>-->
+   
+    <script>
+        a = 10;
+        document.write("a=" + a + "<br>");
+        a = "aa";
+        document.write("a=" + a + "<br>" + "typeof a=" + typeof a + "<br>");
+        var b;
+        document.write("b=" + b + "<br>" + "typeof b=" + typeof b + "<br>");
+        var personal = new Object();
+        personal.name = "abc";
+        personal.age = "22";
+        document.write(personal.name + "," + personal["age"] + "<br>");
+
+        var cars = { brand: "audi", speed: 200 };
+        document.write(cars["brand"] + ":" + cars.speed + "<br>");
+
+        document.write("parseInt(123a)=" + parseInt('123a') + "<br>");
+        document.write("parseInt(12a2)=" + parseInt('12a2') + "<br>");
+        document.write("parseInt('a123')=" + parseInt('a123') + "<br>");
+
+        var c = 1;
+        c++;
+        document.write(c+"<br>");
+
+        var c = 1;
+        ++c;
+        document.write(c + "<br>");
+
+        var c = 10;
+        var d = "10";
+        document.write(c === d + "<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

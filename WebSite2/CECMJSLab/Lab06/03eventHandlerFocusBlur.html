@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>03eventHandlerFocusBlur.html</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("idinput").onchange = change;
+            document.getElementById("idinput").onblur = blur;
+            document.getElementById("idinput").onfocus = focus;
+            document.getElementById("idName").onblur = ckName;
+        }
+        function ckName() {
+           
+        }       
+
+        function change() {
+
+        }
+
+        function blur() {
+
+        }
+
+        function focus() {
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="idinput" value="click here change bgColor"/>
+	<h1>this is h1</h1>
+    <hr />
+    name:<input type="text" id="idName" />
+    <span id="idsp"></span>
+    <br />
+    password:<input type="password" id="idPwd" />
+</body>
+</html>

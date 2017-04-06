@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02dynamicStyleImg.html</title>
+    <style>
+        .s {
+            -webkit-filter: grayscale(1);  /*沒有任何色彩的黑白影像*/
+            
+        }
+        .n {
+            -webkit-filter: grayscale(0);  /*顏色不變*/
+        }
+    </style>
+    <script>
+        //http://blog.shihshih.com/css-filter/
+        window.onload = function () {
+            document.getElementById("idstar").onmouseover = mouseOver;
+            document.getElementById("idstar").onmouseout = mouseOut;
+        }
+        function mouseOver() {
+
+            document.getElementById("idstar").className = "n";
+        }
+        function mouseOut() {
+            document.getElementById("idstar").className = "s";
+        }
+        </script>
+</head>
+<body>
+    <img id="idstar"  class="s" src="Images/star.jpg" />
+</body>
+</html>

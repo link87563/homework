@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>07eventBubble.html</title>
+    <script>
+        window.onload = function () {
+            document.onclick = docClick;  
+            document.getElementById("iddiv").onclick = divClick;
+            document.getElementById("idp").onclick = pClick;
+            //document.getElementById("idhref").onclick = hrefClick;
+        }
+
+        function docClick() {
+            window.alert("Document");
+        }
+
+        function divClick(nsEvent) {
+            window.alert("div");
+            
+        }
+
+        function pClick() {
+            window.alert("p");
+        }
+
+        function hrefClick() {
+            
+        }
+
+    </script>
+</head>
+<body>
+    <div id="iddiv">
+		div
+		<p id="idp">ppppp</p>
+	</div>
+    <a id="idhref" href="http://tw.yahoo.com" >YAHOO</a>
+</body>
+</html>

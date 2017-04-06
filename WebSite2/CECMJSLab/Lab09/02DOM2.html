@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>02DOM2.html</title>
+		<script>
+		
+		function CreateElement(){
+			var theDIV = document.getElementById("iddiv");
+
+			var eleP = document.createElement("p");
+			var txtP = document.createTextNode("Hello World");
+			eleP.appendChild(txtP);
+  
+			theDIV.appendChild(eleP);
+
+			var eleImg = document.createElement("img");
+			eleImg.setAttribute("src","DOM/DOMImage/rabbit-hat.gif");
+
+			theDIV.appendChild(eleImg);
+		}
+		</script>
+	</head>
+
+	<body>
+		<div id="iddiv">div</div>
+		<input type="button" value="CreateElement"  onclick="CreateElement();">
+		
+	</body>
+</html>

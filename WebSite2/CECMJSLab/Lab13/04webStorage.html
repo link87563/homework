@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>04webStorage.html</title>
+    <script >
+        window.onload = function () {
+            document.getElementById("txtLocal").value = localStorage.getItem("local1");
+            document.getElementById("txtSession").value = sessionStorage.getItem("session1");
+        }
+
+        function save() {
+            var myLocal = document.getElementById("txtLocal").value;
+            var mySession = document.getElementById("txtSession").value;
+
+            localStorage.setItem("local1", myLocal);
+            sessionStorage.setItem("session1", mySession);
+        }
+
+        function del() {
+            //localStorage.removeItem("local1");
+            localStorage.clear();
+        }
+
+        function getall() {
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+
+                alert(key + "," + value);
+            }
+        }
+
+</script>
+</head>
+<body>
+    localStorage <input type="text" id="txtLocal"/><br/>
+    sessionStorage <input type="text" id="txtSession"/><br/>
+    <input type="button" value="save" onclick="save()"/>
+    <input type="button" value="delete" onclick="del()"/>
+    <input type="button" value="Get All" onclick="getall()"/>
+</body>
+</html>

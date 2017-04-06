@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01Cookie.html</title>
+    <script>
+        
+        function setCookief(key, value) {
+            document.cookie = "name2=Mary;expires=Wed Dec 10 2014 20:47:11 GMT; path=/";
+            var cookieDate = new Date(2014, 11, 10, 19, 30, 30);
+            document.cookie = key + "=" + escape(value) + ";expires=" + cookieDate.toGMTString() + ";path=/";
+            alert(document.cookie);  //name=Jack
+
+        }
+        function delCookief(key) {
+            var exp = new Date();
+            //alert(exp);
+            exp.setTime(exp.getTime() - (24 * 60 * 60 * 1000));
+            //alert(exp);
+            //document.cookie = "name=Jack;expires=Mon, 10 Aug 2012 20:47:11 GMT; path=/";
+            document.cookie = key + "=" + "; expires=" + exp.toGMTString() + ";path=/";
+        }
+
+        function getCookief() {
+            document.writeln("<p>原始 Cookie 字串：" + document.cookie + "</p>");
+            document.writeln("<p>拆解後的 name/value：</p>");
+            document.writeln("<table style='border:solid red 2px;border-collapse:collapse'>");
+            document.writeln("<tr><th style='border:solid red 2px;color:green'>Name</th><th style='border:solid red 2px;color:green'>Value</th></tr>");
+            if (document.cookie != "") {
+                cookieArray = document.cookie.split(";");
+                for (var i = 0; i < cookieArray.length; i++) {
+                    thisCookie = cookieArray[i].split("=");
+                    cookieName = unescape(thisCookie[0]);
+                    cookieValue = unescape(thisCookie[1]);
+                    document.writeln("<tr><td style='border:solid red 2px'>" + cookieName + "</td><td style='border:solid red 2px'>" + cookieValue + "</td></tr>");
+                }
+                document.writeln("</table>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="設定 cookie" onclick="setCookief('name', 'Jack');"/>
+	<input type="button" value="刪除 cookie" onclick="delCookief('name');"/>
+	<input type="button" value="顯示 cookie" onclick="getCookief();" />
+</body>
+</html>

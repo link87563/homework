@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02checkAge.html</title>
+    <script>
+        function checkage() {
+            var a = document.getElementById("chage").value;
+
+            //var a = document.getElementsByName("chage")[0].value;
+
+            //var a = document.forms[0].chage.value;
+            
+            //var a = document.form1.chage.value;
+
+            //alert(a);
+
+            if (!isNaN(a)) {
+                alert("Your age is:" + a);
+            } else {
+                alert("Please input number");
+            }
+        };
+    </script>
+</head>
+<body>
+    <form name="form1">
+        Age:<input type="text" size="3" name="chage" id="chage" maxlength="3" />
+        <br />
+        <input type="button" value="checkAge" onclick="checkage()" />
+    </form>
+</body>
+</html>

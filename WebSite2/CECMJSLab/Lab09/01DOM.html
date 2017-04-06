@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01DOM.html</title>
+    <script >
+        window.onload = function () {
+            alert(document.nodeType);  //9
+            alert(document.nodeName);  //#document
+            alert(document.nodeValue);  //null
+
+            //取得根元素 documentElement
+            var root = document.documentElement;
+            
+
+            var thebody = root.childNodes[1];  //BODY
+
+
+            var theNode = root.childNodes[1].childNodes[3].childNodes[3];  //LI
+        }
+    </script>
+</head><body><h1>Hello DOM</h1><p>I am a JavaScript</p>
+	<ul>
+		<li>aaaaa</li>
+		<li>bbbbb</li>
+		<li>ccccc</li>
+		<li>ddddd</li>
+		<li>eeeee</li>
+		<li>fffff</li>
+	</ul>
+</body>
+</html>
