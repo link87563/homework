@@ -5,9 +5,16 @@
     <title>02eventHandlerAttachAdd.html</title>
     <script>
         window.onload = function () {
-            document.addEventListener("click", clickDoc, true);
-            document.getElementById("iddiv1").addEventListener("click", clickDiv1, true);
-            document.getElementById("iddiv2").addEventListener("click", clickDiv2, true);
+            if (document.addEventListener) {
+                document.addEventListener("click", clickDoc, true);
+                document.getElementById("iddiv1").addEventListener("click", clickDiv1, true);
+                document.getElementById("iddiv2").addEventListener("click", clickDiv2, true);
+            }
+            else if (document.attachEvent) {
+                document.attachEvent("onclick", clickDoc, true);
+                document.getElementById("iddiv1").attachEvent("onclick", clickDiv1, true);
+                document.getElementById("iddiv2").attachEvent("onclick", clickDiv2, true);
+            }
         }
 
 
