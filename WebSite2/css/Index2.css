@@ -10,32 +10,33 @@ form{
 }
 fieldset{
     width:500px;
-    border:1px solid blue;
+    border:1px solid white;
     border-radius:20px;
     margin:15px;
     padding:20px;
     line-height:2.5em;
 }
 legend{
-    color:#d947ef;
+    color:white;
     font-size:15px;
 }
 .st1{
     width:500px;
-    border-bottom:1px solid #a577f2;
+    border-bottom:1px solid #eec6c6;
     margin:10px;
 }
 .st2{
-    color:gray;
+    color:#eec6c6;
     font-size:14px;
 }
 .st3{
     text-align:right;
 }
 span{
-    color:red;
+    color:white;
+    font-size:14px;
 }
 label{
-    color:#6344cf;
+    color:#76dcf3;
     font-size:15px;
 }
