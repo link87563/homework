@@ -11,19 +11,25 @@
             document.getElementById("idName").onblur = ckName;
         }
         function ckName() {
-           
+            if (document.getElementById("idName").value == "") {
+                //document.getElementById("idName").insertAdjacentHTML("AfterEnd", "You must input...");
+                document.getElementById("idsp").innerHTML = "<img src='Images/error.png'/><span style='color:red'>You must input...</span>";
+            }
+            else {
+                document.getElementById("idsp").innerHTML = "<img src='Images/checkbox_16xLG.png'/>";
+            }
         }       
 
         function change() {
-
+            document.bgColor = "red";
         }
 
         function blur() {
-
+            document.fgColor = "green";
         }
 
         function focus() {
-
+            document.bgColor = "gray";
         }
     </script>
 </head>

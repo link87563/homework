@@ -13,6 +13,9 @@
         function f3() {
             alert("f3");
         }
+        window.onload = function () {
+            document.getElementById("m2").onclick = function () { alert("f3"); alert("f2"); };
+        }
     </script>
 </head>
 <body>
@@ -22,7 +25,7 @@
     <h1 id="m2">method 2</h1>
     <script>
         //document.getElementById("m2").onclick = f2;
-        document.getElementById("m2").onclick = function () { alert("f3") };
+        //document.getElementById("m2").onclick = function () { alert("f3"); alert("f2"); };
     </script>
     <!-- method 3 -->
     <h1 id="m3">method 3</h1>

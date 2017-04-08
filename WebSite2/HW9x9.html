@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>04for.html</title>
+    <script>
+        /*
+        var i=1
+        document.write("i=",i+"<br/>");
+        i++;
+        document.write("i=",i+"<br/>");
+        i++;
+        document.write("i=",i+"<br/>");
+        i++;
+        document.write("i=",i+"<br/>");
+        i++;
+        document.write("i=",i+"<br/>");
+			
+        for (var i=1;i<=5;i++)
+        for(var j=1;j<=5;j++)
+        document.write("i="+i+" j="+j+"<br/>");
+        */
+        //var sum = 0;
+        //for (var i = 1; i <= 5; i++) {
+        //    //sum=sum+i;
+        //    sum += i;
+        //    document.write("i=" + i + " sum=" + sum + "<br/>");
+        //}
+        document.write("<table>");
+        for (var i = 1; i <= 9; i++) {
+            document.write("<tr>" );
+            for (var j = 1; j <= 9; j++) {
+                document.write("<td>" + j + "*" + i + "=" + i * j + "</td>");
+            }
+            document.write("</tr>");
+        }
+	</script>
+    <style>
+        table{
+            border:2px solid #f5507e;
+            border-collapse:collapse;
+        }
+        td{
+            border-right:2px solid #f5507e;
+            color:#829af6;
+        }
+    </style>
+</head>
+<body>
+   
+</body>
+</html>
