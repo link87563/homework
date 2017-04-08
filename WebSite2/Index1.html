@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <title></title>
     <script>
+        window.onload = function () {
+           
+        };
         document.write("<table>");
         for (var i = 1; i <= 9; i++) {
             document.write("<tr>" );
@@ -18,24 +21,25 @@
     </style>
 </head>
 <body>
-    <div id="allpage">
+    <div id="allpage" >
         <header>
             <h1></h1>
             <nav>
-                <img src="Images/zelda-the-legend.jpg" alt="Zelad" height="200" width="1024"/>
                 <ul id="menu">
                     <li><a href="Index1.html">99乘法表</a></li>
                     <li><a href="Index2.html">登入驗證</a></li>
                 </ul>
             </nav>
         </header>
-        <article>
-            <table id="table1">
-            </table>
-        </article>
+        <div id="content">
+            <article>
+                <table id="table1"></table>
+                <input type="button" hidden id="confim" value="Confim" />
+            </article>
+        </div>
     </div>
     <footer>
-        <p>Jeff Gerstmann. Classic NES Series: Zelda II for Game Boy Advance Review. GameSpot.com. 2004 [2006-09-25].</p>
+        <p> A life without a purpose is a ship without a rudder. </p>
     </footer>
 </body>
 </html>
