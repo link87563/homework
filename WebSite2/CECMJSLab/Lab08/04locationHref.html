@@ -4,11 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>04locationHref.html</title>
     <script>
-
+        function redirect(x) {
+            var linkarr = ["#", "http://iiiedu.org.tw/taipei/", "http://tw.yahoo.com", "http://www.google.com.tw"];
+            location.href = linkarr[x];
+        }
     </script>
 </head>
 <body>
-    <select onchange="redirect();" >
+    <select onchange="redirect(this.selectedIndex);" >
 		<option>selected</option>
 		<option>IIIEDU</option>
 		<option>YAHOO</option>
