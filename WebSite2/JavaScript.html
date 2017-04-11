@@ -4,8 +4,30 @@
     <meta charset="utf-8" />
     <title></title>
 	<style></style>
+    <script>
+        function f() {
+            for (i = 0; i <= 100; i++) { }
+        }
+
+        var i = 10;
+        f();
+        document.write("i=" + i);
+        function getData() {
+            
+            alert(document.getElementsByName("myform").length);
+        }
+        var x = 6;
+        a = x++ - 3;
+        alert("a=" + a + ",x=" + (x++));
+    </script>
 </head>
 <body>
+    <form name="myform">
+        <input type="radio" name="sex" value="male" />male
+        <input type="radio" name="sex" value="female" />female
+        <input type="button" value="getDate" onclick="getData();" />
+    </form>
+
     <h1 style="color:red;" onclick="window.alert('call me'); this.style.color = 'blue';">Click me</h1>
 </body>
 </html>

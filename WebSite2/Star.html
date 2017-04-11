@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <style>
         .s{
             -webkit-filter:grayscale(1); /*no color*/
@@ -22,20 +21,25 @@
             }
         }
         function mouseOver(starid) {
-            document.images[0].src = "Images/chngstar" + starid.substr(7) + ".gif";
+            var count = starid.substr(7);
+            for (var i = 0; i < count; i++) {
+                document.images[i].src = "Images/chngstar1.gif";
+            }
         }
         function mouseOut() {
-            document.images[0].src = "Images/star1.gif";
+            for (var i = 0; i < 5; i++) {
+                document.images[i].src = "Images/star1.gif";
+            }
         }
     </script>
 </head>
 <body>
     <div id="rating" name="dive">
-        <img id="imgStar1" class="arr" name="rating" alt="1" src="Images/chngstar1.gif" />
-        <img id="imgStar2"  class="arr"  name="rating" alt="2" src="Images/chngstar1.gif" />
-        <img id="imgStar3"  class="arr" name="rating"  alt="3" src="Images/chngstar1.gif" />
-        <img id="imgStar4"  class="arr"  name="rating" alt="4" src="Images/chngstar1.gif" />
-        <img id="imgStar5"  class="arr"  name="rating" alt="5" src="Images/chngstar1.gif" />
+        <img id="imgStar1" class="arr" name="rating" alt="1" src="Images/star1.gif" />
+        <img id="imgStar2"  class="arr"  name="rating" alt="2" src="Images/star1.gif" />
+        <img id="imgStar3"  class="arr" name="rating"  alt="3" src="Images/star1.gif" />
+        <img id="imgStar4"  class="arr"  name="rating" alt="4" src="Images/star1.gif" />
+        <img id="imgStar5"  class="arr"  name="rating" alt="5" src="Images/star1.gif" />
     </div>
 </body>
 </html>

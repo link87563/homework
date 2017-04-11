@@ -6,7 +6,7 @@
     <script>
         
         function setCookief(key, value) {
-            document.cookie = "name2=Mary;expires=Wed Dec 10 2014 20:47:11 GMT; path=/";
+            document.cookie = "name2=Mary;expires=Wed Dec 10 2017 20:47:11 GMT; path=/";
             var cookieDate = new Date(2014, 11, 10, 19, 30, 30);
             document.cookie = key + "=" + escape(value) + ";expires=" + cookieDate.toGMTString() + ";path=/";
             alert(document.cookie);  //name=Jack
@@ -17,7 +17,7 @@
             //alert(exp);
             exp.setTime(exp.getTime() - (24 * 60 * 60 * 1000));
             //alert(exp);
-            //document.cookie = "name=Jack;expires=Mon, 10 Aug 2012 20:47:11 GMT; path=/";
+            document.cookie = "name=Jack;expires=Mon, 10 Aug 2012 20:47:11 GMT; path=/";
             document.cookie = key + "=" + "; expires=" + exp.toGMTString() + ";path=/";
         }
 
