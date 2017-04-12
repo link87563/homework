@@ -12,12 +12,14 @@
         }
     </style>
     <script>
+        var starflag = false;
         window.onload = function () {
             var stars = document.querySelectorAll("img.arr")
             var starlen = stars.length;
             for (var i = 0; i < starlen; i++) {
                 stars[i].onmouseover = function () { mouseOver(this.id) };
                 stars[i].onmouseout = mouseOut;
+                stars[i].onclick = function () { click(this.id) };
             }
         }
         function mouseOver(starid) {
@@ -31,6 +33,17 @@
                 document.images[i].src = "Images/star1.gif";
             }
         }
+        function click(starid) {
+            starflag = false;
+            var count=starid.substr(7);
+            for (var i = 0; i < count  ; i++) {
+                starflag = true;
+                if (starflag) {
+                    document.images[i].src = "Images/chngstar1.gif";
+                }
+            }
+            document.getElementById("mapdiv").innerHTML = "你給了" + starid.substr(7) + "顆星";
+        }
     </script>
 </head>
 <body>
@@ -41,5 +54,6 @@
         <img id="imgStar4"  class="arr"  name="rating" alt="4" src="Images/star1.gif" />
         <img id="imgStar5"  class="arr"  name="rating" alt="5" src="Images/star1.gif" />
     </div>
+    <div id="mapdiv" style="float:left;width:auto;height:auto;"></div>
 </body>
 </html>
