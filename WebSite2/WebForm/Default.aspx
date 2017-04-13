@@ -65,6 +65,7 @@
                 <asp:Parameter Name="ProductID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
+        <asp:Image ID="Image1" ImageUrl="~/WebForm/Handler.ashx?ProductID=11" runat="server" />
     </form>
 </body>
 </html>
