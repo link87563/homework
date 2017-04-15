@@ -13,7 +13,21 @@
     </style>
     <script>
         function fileViewer() {
+            var files = document.getElementById("file1").files;
+            var filelen = files.length;
+            for (var i = 0; i < filelen; i++) {
 
+                var reader = new FileReader();
+                reader.readAsDataURL(files[i]);
+                reader.onload = function (e) {
+                    var fileCotent = e.target.result;
+                    
+                    var imgObj = document.createElement("img");
+                    imgObj.setAttribute("src", fileCotent);
+                    imgObj.setAttribute("class", "thumb");
+                    document.getElementById("dropZone").appendChild(imgObj);
+                }
+            }
         }
     </script>
 </head>

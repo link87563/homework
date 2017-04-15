@@ -5,7 +5,19 @@
     <title>01fileRead.html</title>
     <script>
         function fileViewer() {
+            var files = document.getElementById("file1").files;
+            var filelen = files.length;
+            for (var i = 0; i < filelen; i++) {
+                //alert(files[i].name + "," + files[i].type);
 
+                var reader = new FileReader();
+                reader.readAsText(files[i], "UTF-8");
+                reader.onload = function (e) {
+                    var fileCotent = e.target.result;
+                    //document.getElementById("show").innerHTML = fileCotent;
+                    document.getElementById("show").insertAdjacentHTML("BeforeEnd", fileCotent);
+                }
+            }
         }
     </script>
 </head>

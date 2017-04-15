@@ -4,19 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>01ad.html</title>
     <script>
+        var a=setTimeout(f,2000);
+        function f() {
+            //window.close();
+            location.href = "http://tw.yahoo.com";
+        }
         window.onload=function(){
 	    document.getElementById("idbutself").onclick=selff;
   	    document.getElementById("idbuthref").onclick=hreff;
 	    document.getElementById("idbutstop").onclick=stopf;
 	}
         function selff() {
-           
+            window.close();
         }
         function hreff() {
-           
+            location.href = "01a.html";
         }
         function stopf() {
-
+            window.clearTimeout(a);
         }
     </script>
 </head>

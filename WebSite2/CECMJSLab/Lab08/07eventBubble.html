@@ -17,7 +17,11 @@
 
         function divClick(nsEvent) {
             window.alert("div");
-            
+            var theEvent = nsEvent || event;
+            if (theEvent.stopPropagation)
+                theEvent.stopPropagation();
+            else
+                theEvent.cancelBubble = true;
         }
 
         function pClick() {

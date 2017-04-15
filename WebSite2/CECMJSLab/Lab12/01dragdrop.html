@@ -18,16 +18,23 @@
     </style>
     <script>
         function dragStartHandler(e) {
-
+            e.dataTransfer.setData("text/plain", e.target.textContent);
         }
 
 
         function dragoverHandler(e) {
-
+            e.preventDefault();
         }
 
         function dropHandler(e) {
+            e.preventDefault();
+            var sourceid = e.dataTransfer.getData("text/plain");
+            var source = document.getElementById(sourceid);
+            var sourceDiv = document.createElement("div");
 
+            sourceDiv.innerHTML = source.innerHTML;
+            sourceDiv.setAttribute("class", "dragItemStyle");
+            e.currentTarget.appendChild(sourceDiv);
         }
     </script>
 </head>

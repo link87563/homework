@@ -11,6 +11,18 @@
             var x = canvas.width / 2;
             var y = canvas.height / 2;
 
+            context.beginPath();
+            context.moveTo(250, 0);
+            context.lineTo(250, 400);
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(0, 200);
+            context.lineTo(500, 200);
+            context.closePath();
+            context.stroke();
+
             context.font = "30pt Calibir";
             context.textAlign = "center";
             context.textBaseline = "middle";
