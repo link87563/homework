@@ -5,7 +5,6 @@
     <title></title>
     <script>
         window.onload = function () {
-           
         };
         document.write("<table>");
         for (var i = 1; i <= 9; i++) {
@@ -16,8 +15,23 @@
             document.write("</tr>");
         }
     </script>
+    <link href="css/Index.css" rel="stylesheet" />
     <style>
-        @import url('css/Index1.css');
+        .showText{
+            text-align:center;
+        }
+        table {
+            width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid white;
+            border-collapse: collapse;
+        }
+        td {
+            border-right: 2px solid white;
+            color: white;
+            padding: 10px 5px 10px 5px;
+        }
     </style>
 </head>
 <body>
@@ -26,16 +40,17 @@
             <h1></h1>
             <nav>
                 <ul id="menu">
-                    <li><a href="Index1.html">99乘法表</a></li>
+                    <li><a href="#">99乘法表</a></li>
                     <li><a href="Index2.html">登入驗證</a></li>
+                    <li><a href="Index3.html">五星評價</a></li>
+                    <li><a href="Index4.html">照片輪播</a></li>
+                    <li><a href="Index5.html">日期選擇</a></li>
                 </ul>
             </nav>
         </header>
-        <div id="content">
-            <article>
+        <div class="showText">
                 <table id="table1"></table>
                 <input type="button" hidden id="confim" value="Confim" />
-            </article>
         </div>
     </div>
     <footer>

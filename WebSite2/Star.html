@@ -4,11 +4,14 @@
     <meta charset="utf-8" />
     <title></title>
     <style>
-        .s{
-            -webkit-filter:grayscale(1); /*no color*/
+        #mapdiv{
+            line-height:60px;
+            font-size:40px;
+            color:red;
+            text-align:center;
         }
-        .n{
-            -webkit-filter:grayscale(0);
+        #rating{
+          text-align:center;
         }
     </style>
     <script>
@@ -24,36 +27,45 @@
         }
         function mouseOver(starid) {
             var count = starid.substr(7);
-            for (var i = 0; i < count; i++) {
-                document.images[i].src = "Images/chngstar1.gif";
-            }
-        }
-        function mouseOut() {
-            for (var i = 0; i < 5; i++) {
-                document.images[i].src = "Images/star1.gif";
-            }
-        }
-        function click(starid) {
-            starflag = false;
-            var count=starid.substr(7);
-            for (var i = 0; i < count  ; i++) {
-                starflag = true;
-                if (starflag) {
+            if (!starflag) {
+                for (var i = 0; i < count; i++) {
                     document.images[i].src = "Images/chngstar1.gif";
                 }
             }
-            document.getElementById("mapdiv").innerHTML = "你給了" + starid.substr(7) + "顆星";
+        }
+        function mouseOut() {
+            if (!starflag) {
+                for (var i = 0; i < 5; i++) {
+                    document.images[i].src = "Images/star1.gif";
+                }
+                document.getElementById("mapdiv").innerHTML = "";
+            }
+        }
+        function click(starid) {
+            if (!starflag) {
+            var count=starid.substr(7);
+                starflag = true;
+                document.getElementById("mapdiv").innerHTML = "你給了" + starid.substr(7) + "顆星 <input type='button' onClick='starReset()' value='Reset'></span>";
+                }
+        }
+        function starReset() {
+            starflag = false;
+            var count = starid.substr(7);
+                for (var i = 0; i < count; i++) {
+                    document.images[i].src = "Images/star1.gif";
+                }
+                document.getElementById("mapdiv").innerHTML = "";
         }
     </script>
 </head>
 <body>
-    <div id="rating" name="dive">
-        <img id="imgStar1" class="arr" name="rating" alt="1" src="Images/star1.gif" />
-        <img id="imgStar2"  class="arr"  name="rating" alt="2" src="Images/star1.gif" />
-        <img id="imgStar3"  class="arr" name="rating"  alt="3" src="Images/star1.gif" />
-        <img id="imgStar4"  class="arr"  name="rating" alt="4" src="Images/star1.gif" />
-        <img id="imgStar5"  class="arr"  name="rating" alt="5" src="Images/star1.gif" />
+    <div id="rating">
+        <img id="imgStar1" class="arr"   src="Images/star1.gif" />
+        <img id="imgStar2"  class="arr"    src="Images/star1.gif" />
+        <img id="imgStar3"  class="arr"   src="Images/star1.gif" />
+        <img id="imgStar4"  class="arr" src="Images/star1.gif" />
+        <img id="imgStar5"  class="arr"    src="Images/star1.gif" />
     </div>
-    <div id="mapdiv" style="float:left;width:auto;height:auto;"></div>
+    <div id="mapdiv"></div>
 </body>
 </html>

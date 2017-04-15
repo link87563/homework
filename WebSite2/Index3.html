@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/Index.css" rel="stylesheet" />
+    <style>
+        #mapdiv{
+            line-height:60px;
+            font-size:40px;
+            color:ivory;
+            text-align:center;
+        }
+        #rating{
+          text-align:center;
+        }
+    </style>
+    <script>
+        var starflag = false;
+        window.onload = function () {
+            var stars = document.querySelectorAll("img.arr")
+            var starlen = stars.length;
+            for (var i = 0; i < starlen; i++) {
+                stars[i].onmouseover = function () { mouseOver(this.id) };
+                stars[i].onmouseout = mouseOut;
+                stars[i].onclick = function () { click(this.id) };
+            }
+        }
+        function mouseOver(starid) {
+            var count = starid.substr(7);
+            if (!starflag) {
+                for (var i = 0; i < count; i++) {
+                    document.images[i].src = "Images/chngstar1.gif";
+                }
+            }
+        }
+        function mouseOut() {
+            if (!starflag) {
+                for (var i = 0; i < 5; i++) {
+                    document.images[i].src = "Images/star1.gif";
+                }
+                document.getElementById("mapdiv").innerHTML = "";
+            }
+        }
+        function click(starid) {
+            if (!starflag) {
+                var count = starid.substr(7);
+                starflag = true;
+                document.getElementById("mapdiv").innerHTML = "你給了" + starid.substr(7) + "顆星 <input type='button' onClick='starReset()' value='Reset'></span>";
+            }
+        }
+        function starReset() {
+            starflag = false;
+            var count = starid.substr(7);
+            for (var i = 0; i < count; i++) {
+                document.images[i].src = "Images/star1.gif";
+            }
+            document.getElementById("mapdiv").innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+    <div id="allpage">
+        <header>
+            <h1></h1>
+            <nav>
+                <ul id="menu">
+                    <li><a href="Index1.html">99乘法表</a></li>
+                    <li><a href="index2.html">登入驗證</a></li>
+                    <li><a href="#">五星評價</a></li>
+                    <li><a href="Index4.html">照片輪播</a></li>
+                    <li><a href="Index5.html">日期選擇</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <article>
+                <div id="rating">
+                    <img id="imgStar1" class="arr" src="Images/star1.gif" />
+                    <img id="imgStar2" class="arr" src="Images/star1.gif" />
+                    <img id="imgStar3" class="arr" src="Images/star1.gif" />
+                    <img id="imgStar4" class="arr" src="Images/star1.gif" />
+                    <img id="imgStar5" class="arr" src="Images/star1.gif" />
+                </div>
+                <div id="mapdiv"></div>
+            </article>
+        </div>
+    </div>
+        <footer>
+            <p>A life without a purpose is a ship without a rudder. </p>
+        </footer>
+</body>
+</html>
