@@ -24,17 +24,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="page1.aspx">MSIT114</a>
+           <asp:HyperLink ID="HyperLink5" CssClass="navbar-brand" runat="server" NavigateUrl="~/WebForm/page1.aspx">MSIT114</asp:HyperLink>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="ProductList.aspx">ProductList <span class="sr-only">(current)</span></a></li>
-        <li><a href="ProductList2.aspx">ProductList2</a></li>
+        <li>
+            <asp:HyperLink ID="HyperLink3" CssClass="navbar-brand" runat="server" NavigateUrl="~/WebForm/ProductList.aspx">ProductList</asp:HyperLink>
+            <span class="sr-only">(current)</span></li>
+        <li>
+            <asp:HyperLink ID="HyperLink4" CssClass="navbar-brand" runat="server" NavigateUrl="~/WebForm/ProductList2.aspx">ProductList2</asp:HyperLink></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">登入</a></li>
-        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/WebForm/CartItems.aspx">購物車</asp:HyperLink></li>
+          <li>
+              <asp:HyperLink ID="HyperLinkLogin" CssClass="navbar-brand" runat="server" NavigateUrl="~/WebForm/ShoppingLogin.aspx">登入</asp:HyperLink></li>
+        <li><asp:HyperLink ID="HyperLinkShoppingCart" CssClass="navbar-brand" runat="server" NavigateUrl="~/WebForm/CartItems.aspx">購物車</asp:HyperLink></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 
@@ -43,7 +47,7 @@
             
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">MSIT</h3>
+                    <asp:Literal ID="LiteralTitle" runat="server"></asp:Literal>
                 </div>
                 <div class="panel-body">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -73,9 +77,6 @@ However, President Trump said the US was "not going into Syria".<a href="http://
         </div>
 
         </div> <%--最後的div--%>
-
-       
-
     </form>
     <script src="../Scripts/jquery-3.1.1.slim.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>

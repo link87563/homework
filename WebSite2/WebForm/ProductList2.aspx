@@ -9,6 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:HiddenField ID="HiddenTitle" runat="server" Value="商品" />
     <div class="row">
         <div class="col-lg-3">
             <uc1:CategoryNav runat="server" ID="CategoryNav" />

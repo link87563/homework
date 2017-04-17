@@ -9,6 +9,27 @@ public partial class WebForm_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!Page.IsPostBack)
+        {
+            if (ContentPlaceHolder1.FindControl("HiddenTitle")!=null)
+            {
+                LiteralTitle.Text = ((HiddenField)ContentPlaceHolder1.FindControl("HiddenTitle")).Value;
+            }
+            else
+            {
+                LiteralTitle.Text = "";
+            }
+            if (Request.Cookies["name"]!=null)
+            {
+                HyperLinkLogin.Text = Request.Cookies["name"].Value + "登出";
+                HyperLinkLogin.NavigateUrl = "~/WebForm/ShoppingLogout.aspx";
+                
+            }
+            else
+            {
+                HyperLinkLogin.Text = "登入";
+                HyperLinkLogin.NavigateUrl = "~/WebForm/ShoppingLogin.aspx";
+            }
+        }
     }
 }
