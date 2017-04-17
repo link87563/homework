@@ -11,6 +11,10 @@ public partial class WebForm_AddToCart : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            ViewState["Ppage"] = Request.UrlReferrer.ToString();
+        }
         string productID = "";
         if (Request.QueryString!=null)
         {
@@ -50,6 +54,7 @@ public partial class WebForm_AddToCart : System.Web.UI.Page
                 conn.Close();
             }
         }
-        Response.Redirect("~/WebForm/ProductList2.aspx");
+        Response.Redirect(ViewState["Ppage"].ToString());
+        //Response.Redirect("~/WebForm/ProductList2.aspx");
     }
 }
