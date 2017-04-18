@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1{
+            border:2px solid blue;
+            border-collapse:collapse;
+        }
+        #table1 td{
+            border:2px solid blue;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <select id="selectme"></select>
+    <div id="div1"></div>
+    <script>
+        var selectme= document.getElementById("selectme");
+        var xhr = new XMLHttpRequest();
+        var div1 = document.getElementById("div1");
+
+        selectme.addEventListener("change", function () {
+            var xhr1 = new XMLHttpRequest();
+            xhr1.addEventListener("load", function () {
+                var str = "<table id='table1'>";
+                
+                var data1 = JSON.parse(xhr1.responseText);
+                for (var i = 0; i < data1.length; i++) {
+                    var id = data1[i].ProductID;
+                    var name = data1[i].ProductName;
+                    var price = data1[i].UnitPrice;
+                    var stork = data1[i].UnitsInStock;
+                    str += "<tr>"  ;
+                    str+="<td>"+ id +"</td>";
+                    str += "<td>" + name + "</td>";
+                    str += "<td>" + price + "</td>";
+                    str += "<td>" + stork + "</td>";
+                    str+="</tr>";
+                }
+                str += "</table>";
+                div1.innerHTML = "";
+                div1.innerHTML = str;
+            })
+            xhr1.open("get", "Handler2.ashx?categoryid=" + this.value);
+            xhr1.send();
+        })
+
+            xhr.addEventListener("load", function () {
+                var data = JSON.parse(xhr.responseText);
+                for (var i = 0, max = data.length; i < max; i++) {
+                    var opt = new Option(data[i].CategoryName, data[i].CategoryID);
+                    selectme.options.add(opt);
+                }
+            })
+            xhr.open("get", "Json.ashx");
+            xhr.send();
+    </script>
+</body>
+</html>

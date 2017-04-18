@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #img1{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <input type="text" id="Username" name="Username" />
+        <input type="button" id="buttonClick" value="load" />
+        <input type="button" id="buttonCancel" value="Cancel" />
+        <div id="div1"></div><img src="../Images/ajax-loader.gif" id="img1" />
+    </form>
+    <script>
+        var btn = document.getElementById("buttonClick"),
+              img1 = document.getElementById("img1"),
+              div1 = document.getElementById("div1"),
+              xhr = null;
+        var btn2 = document.getElementById("buttonCancel");
+        btn2.addEventListener("click", function () {
+            xhr.abort();
+        })
+        btn.addEventListener("click", function () {
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", function () {
+                if (xhr.status==200) {
+                var data = xhr.responseText;
+                div1.innerHTML = data;
+                }
+                else {
+                    alert(xhr.status+":"+xhr.statusText);
+                }
+            })
+
+            xhr.addEventListener("loadstart", function () {
+                btn.setAttribute("disabled", "disabled");
+                btn.value = "loading...";
+                img1.style.display = "inline";
+            })
+            xhr.addEventListener("loadend", function () {
+                    btn.value = "load";
+                    btn.removeAttribute("disabled");
+                    img1.style.display = "none";
+            })
+            xhr.addEventListener("timeout", function () {
+                div1.innerHTML = "Server to busy";
+            })
+            xhr.addEventListener("abort", function () {
+                div1.innerHTML = "You cancel ";
+            })
+            var name= document.getElementById("Username").value;
+
+            xhr.open("get", "Handler.ashx?Username="+name);
+            xhr.timeout = 3000;
+            xhr.send();
+        })
+        
+    </script>
+</body>
+</html>
