@@ -3,8 +3,14 @@
 <%@ Register Src="~/LinkWebForm/CategoryNav.ascx" TagPrefix="uc1" TagName="CategoryNav" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style>
-        .thumbnail{
+        #st1{
             margin:10px;
+        }
+        .s1{
+            background-color:lightblue;
+        }
+        .s2{
+            background-color:lightcoral;
         }
     </style>
 </asp:Content>
@@ -19,7 +25,7 @@
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></h2>
             <asp:DataList ID="DataList1" RepeatDirection="Horizontal" RepeatColumns="3" runat="server" DataKeyField="ProductID" DataSourceID="SqlDataSource1">
                 <ItemTemplate>
-                    <div class="thumbnail">
+                    <div class="thumbnail" id="st1">
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/LinkWebForm/ImageHandler.ashx?ProductID="+Eval("ProductID") %>'/>
                         <div class="caption">
                             <h4><%# Eval("ModelName") %></h4>
@@ -41,5 +47,15 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" Runat="Server">
+    <script>
+        $('.thumbnail').addClass('s1').hover(show, out);
+            function show() {
+            $(this).switchClass('s1', 's2', 500);
+            }
+           function out() {
+            $(this).switchClass('s2', 's1', 500);
+         }
+    </script>
+   
 </asp:Content>
 

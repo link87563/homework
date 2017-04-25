@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-sm-6">
                          <h3>詳細資料:</h3><br />
-                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Description") %>'></asp:Label><br />
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("Description") %>'></asp:Label><br /><br />
                         <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-primary" NavigateUrl='<%# "~/LinkWebForm/AddToCart.aspx?ProductID="+Eval("ProductID") %>'><span class="glyphicon glyphicon-shopping-cart" >加入購物車</span> </asp:HyperLink>
                     </div>
                 </ItemTemplate>

@@ -21,7 +21,7 @@ public partial class LinkWebForm_LinkMasterPage : System.Web.UI.MasterPage
             }
             if (Request.Cookies["name"]!=null)
             {
-                HyperLinkLogin.Text = Request.Cookies["name"].Value + "登出";
+                HyperLinkLogin.Text = Request.Cookies["name"].Value + " 登出";
                 HyperLinkLogin.NavigateUrl = "~/LinkWebForm/ShoppingLogout.aspx";
             }
             else
