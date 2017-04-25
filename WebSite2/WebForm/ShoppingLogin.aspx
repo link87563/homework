@@ -65,7 +65,7 @@
              <asp:CheckBox ID="CheckBoxRB" runat="server" />
             Remember me </asp:Label>
         </div>
-                 <asp:Button ID="Button1" runat="server" Text="Log In" CssClass="btn btn-primary" OnClick="Button1_Click" />
+                 <asp:Button ID="Button1" runat="server" Text="LogIn" CssClass="btn btn-primary" OnClick="Button1_Click" />
     </div>
     
   </div>
