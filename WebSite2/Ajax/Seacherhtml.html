@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .s1{
+            background-color:#0094ff;
+        }
+        #div1{
+            width:175px;
+        }
+        #div1 ul{
+            list-style-type:none;
+            margin:0px;
+            padding:0px;
+        }
+    </style>
+</head>
+<body>
+    <form name="myForm" action="Handler.ashx">
+        <input type="text" id="textname" name="Username" autocomplete="off"/>
+    </form>
+    <div id="div1"></div>
+    <script>
+        var txt = document.querySelector("#textname");
+        txt.addEventListener("keyup", function () {
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", function () {
+                var data = JSON.parse(xhr.responseText);
+                var eleUI = document.createElement("ul");
+                var myDiv = document.querySelector("#div1");
+                //刪除舊資料顯示新資料
+                while (myDiv.hasChildNodes()) {
+                    myDiv.removeChild(myDiv.lastChild);
+                }
+                for (var i = 0,max=data.length; i < max; i++) {
+                    var txtLi = document.createTextNode(data[i]);
+                    var eleLi = document.createElement("li");
+                    eleLi.appendChild(txtLi);
+                    eleLi.addEventListener("click", function () {
+                        txt.value = this.textContent;
+                        //轉換到其他頁面
+                        document.myForm.submit();
+                    })
+                    eleLi.addEventListener("mouseover", function () {
+                        this.classList.add('s1');
+                    })
+                    eleLi.addEventListener("mouseout", function () {
+                        this.classList.remove('s1');
+                    })
+                    eleUI.appendChild(eleLi);
+                }
+                myDiv.appendChild(eleUI);
+            })
+            xhr.open("get", "Search.ashx?name=" + this.value);
+            xhr.send();
+        })
+    </script>
+</body>
+</html>

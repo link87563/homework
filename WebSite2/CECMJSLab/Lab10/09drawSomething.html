@@ -12,35 +12,48 @@
             window.onload = function () {
                 var canvas = document.getElementById("myCanvas");
                 var context = canvas.getContext("2d");
-                var btnSave = document.getElementById("buttonSave").onclick = btnSavef;
-                canvas.onmousedown = mouseDownf;
-                canvas.onmousemove = mouseMovef;
-                canvas.onmouseup = mouseUpf;
-        
-        
-        
+                var btnSave = document.getElementById("buttonSave").addEventListener("click",btnSavef);
+                canvas.addEventListener("mousedown",mouseDownf);
+                canvas.addEventListener("mousemove",mouseMovef);
+                canvas.addEventListener("mouseup",mouseUpf);
+
+
+
                 function btnSavef() {
-                    
+                    var imgObj = document.getElementById("img1");
+                    imgObj.src = canvas.toDataURL("image/png");
                 }
-        
+
                 var flag;
-                    
+
                 //開始畫圖
                 function mouseDownf() {
-                   
+                    flag = true;
+                    context.beginPath();
+                    context.moveTo(event.offsetX, event.offsetY);
                 }
-        
+
                 //畫圖中
                 function mouseMovef(nsEvent) {
-                   
+                    if (flag) {
+                        context.lineTo(event.offsetX, event.offsetY);
+                        var color = document.getElementById("color1").value;
+                        var w = document.getElementById("number1").value;
+
+                        context.strokeStyle = color;
+                        context.lineWidth = w;
+                        context.stroke();
+
+                    }
                 }
-        
+
                 //結束畫圖
                 function mouseUpf() {
-                    
+                    flag = false;
+                    context.closePath();
                 }
-        
-            }
+
+            };
         </script>  
 
 

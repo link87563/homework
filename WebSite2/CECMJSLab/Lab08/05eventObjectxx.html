@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05eventObject.html</title>
+    <script>
+        document.onmousedown = mouseDown;
+        function mouseDown() {            
+            alert(event.type);
+            alert(event.button);
+        }
+        function mouseDown(nsevent) {
+            alert(nsevent.type);
+            alert(nsevent.button);
+        }
+
+
+
+        document.onkeydown = keyDown;
+        function keyDown(nsevent) {
+            var theEvent = nsevent || window.event;
+            if (theEvent.altKey) alert("ALT");
+            if (theEvent.ctrlKey) alert("CTRL");
+            if (theEvent.shiftKey) alert("SHIFT");
+        }
+
+        window.onload = function () {
+            document.getElementById("idbut").onclick = CoordXY;
+        }
+
+        function CoordXY() {
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="idbut" value="button"/>
+</body>
+</html>

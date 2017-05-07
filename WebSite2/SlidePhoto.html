@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            var num = 1;
+            var tNum = 5;
+            var duration = 2000;
+
+            run();
+            document.getElementById("box").onmouseover = stopRun;
+            document.getElementById("box").onmouseout = run;
+
+            for (var i = 1; i <= tNum; i++) {
+                document.getElementById("tab" + i).onclick = show;
+                document.getElementById("con" + i).style.display = "none";
+            }
+            document.getElementById("con1").style.display = "block";
+            document.getElementById("tab1").className = "now-tab";
+
+            function autoShow() {
+                for (var i = 1; i <= tNum; i++) {
+                    document.getElementById("con" + i).style.display = "none";
+                    document.getElementById("tab" + i).className = "";
+                }
+                if (num<tNum) {
+                    num++;
+                }
+                else {
+                    num = 1;
+                }
+                document.getElementById("con" + num).style.display = "block";
+                document.getElementById("tab" + num).className = "now-tab";
+            }
+
+            function show() {
+                num = this.id.substr(3)-1 ;
+                autoShow();
+            }
+
+            function stopRun() {
+                clearInterval(myInterval);
+            }
+
+            function run() {
+                myInterval = setInterval(autoShow, duration);
+            }
+        }
+    </script>
+    <style>
+        .tabPanel1{
+            text-align:center;
+            margin:auto;
+            position:relative;
+            width:450px;
+            height:200px;
+            overflow:hidden;
+        }
+        .tabPanel2{
+           width:100%;
+           margin:auto;
+           text-align:center;
+        }
+        .switch{
+            padding:0;
+            margin:0;
+          list-style-type:none;
+        }
+        .switch li{
+            display:inline-block;
+            font-size:36px;
+        }
+        .switch li a{
+            text-decoration:none;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabPanel1" id="box">
+        <div id="con1" class="tab-contexts">
+            <img src="ProductImages/AFH00027.jpg" width="450" height="200" alt="a" />
+        </div>
+        <div id="con2" class="tab-contexts">
+            <img src="ProductImages/AFH00034.jpg" width="450" height="200" alt="b" />
+        </div>
+        <div id="con3" class="tab-contexts">
+            <img src="ProductImages/AFH00037.jpg" width="450" height="200" alt="c" />
+        </div>
+        <div id="con4" class="tab-contexts">
+            <img src="ProductImages/AFJ00190.jpg" width="450" height="200" alt="d" />
+        </div>
+        <div id="con5" class="tab-contexts">
+            <img src="ProductImages/AFV00054.jpg" width="450" height="200" alt="e" />
+        </div>
+    </div>
+        <div class="tabPanel2" >
+            <ul class="switch">
+                <li ><a href="" id="tab1">1</a></li>
+                <li ><a href="" id="tab2">2</a></li>
+                <li ><a href="" id="tab3">3</a></li>
+                <li><a href=""  id="tab4">4</a></li>
+                <li ><a href="" id="tab5">5</a></li>
+            </ul>
+        </div>
+</body>
+</html>

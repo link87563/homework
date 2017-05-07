@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            cYear();
+            cMonth();
+            cDay();
+            document.getElementById("selectYear").addEventListener("change", function () { cDay(); show() });
+            document.getElementById("selectMonth").addEventListener("change", function () { cDay(); show() });
+            document.getElementById("selectDay").addEventListener("change", show);
+        }
+        function cYear() {
+            for (var i = 2010; i <= 2020; i++) {
+                var opt = window.document.createElement("option");
+                opt.setAttribute("value", i);
+                var optname = document.createTextNode(i);
+                opt.appendChild(optname);
+                document.getElementById("selectYear").appendChild(opt);
+            }
+        }
+        function cMonth() {
+            for (var i = 1; i <= 12; i++) {
+                var opt = window.document.createElement("option");
+                opt.setAttribute("value", i);
+                var optname = document.createTextNode(i);
+                opt.appendChild(optname);
+                document.getElementById("selectMonth").appendChild(opt);
+            }
+        }
+        function cDay() {
+            document.getElementById("selectDay").innerHTML = "";
+            var theYear = document.getElementById("selectYear").value;
+            var theMonth = document.getElementById("selectMonth").value;
+
+            var d = new Date(theYear, theMonth, 0);
+            var days = d.getDate();
+            for (var i = 1; i <= days; i++) {
+                var opt = window.document.createElement("option");
+                opt.setAttribute("value", i);
+                var optname = document.createTextNode(i);
+                opt.appendChild(optname);
+                document.getElementById("selectDay").appendChild(opt);
+            }
+        }
+        function show() {
+            var theYear = document.getElementById("selectYear").value;
+            var theMonth = document.getElementById("selectMonth").value;
+            var theDay = document.getElementById("selectDay").value;
+            document.getElementById("dateResult").innerHTML = theYear + "/" + theMonth + "/" + theDay;
+        }
+    </script>
+    <style>
+        .selectText{
+            text-align:center;
+        }
+        select{
+            font-size:40px;
+            border:1px solid blue;
+        }
+        .selectText2{
+            text-align:center;
+            font-size:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="selectText">
+        <select id="selectYear"></select>
+        <select id="selectMonth"></select>
+        <select id="selectDay"></select>
+    </div>
+    <div class="selectText2" id="dateResult">select date</div>
+</body>
+</html>

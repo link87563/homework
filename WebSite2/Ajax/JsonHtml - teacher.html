@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #table1{
+            border:2px solid blue;
+            border-collapse:collapse;
+        }
+        #table1 td{
+            border:2px solid blue;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <select id="selectme"></select>
+    <table id="table1">
+        <thead>
+            <tr>
+                <td>ProductID</td>
+                <td>ProductName</td>
+                <td>UnitPrice</td>
+                <td>UnitsInStock</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>aaa</td>
+                <td>20</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var selectme= document.getElementById("selectme");
+        var xhr = new XMLHttpRequest();
+
+        selectme.addEventListener("change", function () {
+            var xhr1 = new XMLHttpRequest();
+            xhr1.addEventListener("load", function () {
+                var data = JSON.parse(xhr1.responseText);
+                var tb = document.querySelector("#table1>tbody");
+                var docFragment = document.createDocumentFragment();
+
+                while (tb.hasChildNodes()) {
+                    tb.removeChild(tb.lastChild);
+                }
+
+                for (var i = 0; i < data.length; i++) {
+                    var txt1 = document.createTextNode(data[i].ProductID);
+                    var cell1 = document.createElement("td");
+                    cell1.appendChild(txt1);
+
+                    var txt2 = document.createTextNode(data[i].ProductName);
+                    var cell2 = document.createElement("td");
+                    cell2.appendChild(txt2);
+
+                    var txt3 = document.createTextNode(data[i].UnitPrice);
+                    var cell3 = document.createElement("td");
+                    cell3.appendChild(txt3);
+
+                    var txt4 = document.createTextNode(data[i].UnitsInStock);
+                    var cell4 = document.createElement("td");
+                    cell4.appendChild(txt4);
+
+                    var row = document.createElement("tr");
+                    row.appendChild(cell1);
+                    row.appendChild(cell2);
+                    row.appendChild(cell3);
+                    row.appendChild(cell4);
+
+                    docFragment.appendChild(row);
+                }
+                tb.appendChild(docFragment);
+            })
+            xhr1.open("get", "Handler2.ashx?categoryid=" + this.value);
+            xhr1.send();
+        })
+
+            xhr.addEventListener("load", function () {
+                var data = JSON.parse(xhr.responseText);
+                for (var i = 0, max = data.length; i < max; i++) {
+                    var opt = new Option(data[i].CategoryName, data[i].CategoryID);
+                    selectme.options.add(opt);
+                }
+            })
+            xhr.open("get", "Json.ashx");
+            xhr.send();
+    </script>
+</body>
+</html>

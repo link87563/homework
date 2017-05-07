@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LinkMasterPage.master.cs" Inherits="LinkWebForm_LinkMasterPage" %>
+
+<!DOCTYPE html>
+
+<html  lang="zh-tw">
+<head runat="server">
+<meta charset="utf-8"/>
+    <title></title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/jquery-ui.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <asp:HyperLink ID="HyperLink1" CssClass="navbar-brand" runat="server" NavigateUrl="~/LinkWebForm/Products.aspx">Link's Home</asp:HyperLink>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/LinkWebForm/Products.aspx">購物商城<span class="sr-only">(current)</span></asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink5" runat="server">Link2<span class="sr-only">(current)</span></asp:HyperLink></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <asp:HyperLink ID="HyperLinkLogin" runat="server">Login</asp:HyperLink></li>
+                            <li>
+                                <asp:HyperLink ID="HyperLinkShoppingCart" runat="server" NavigateUrl="~/LinkWebForm/CartItem.aspx">購物車</asp:HyperLink></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <asp:Literal ID="LiteralTitle" runat="server"></asp:Literal>
+                </div>
+                <div class="panel-body">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h2>Bootstrap</h2>
+                    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.<a href="http://getbootstrap.com/" class="btn btn-info"> 詳細資料<span class="glyphicon glyphicon-chevron-right"></span></a></p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <h2>W3Schools</h2>
+                    <p>W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding.<a href="https://www.w3schools.com/" class="btn btn-info"> 詳細資料<span class="glyphicon glyphicon-chevron-right"></span></a></p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <h2>JavaScript</h2>
+                    <p>Almost all of my javascript code has been moved over to its new home at The Javascript Toolbox. Please go there to find the latest scripts, information, etc. These pages will remain here for a while for historical purposes in case anyone needs a production copy of old code.<a href="http://www.mattkruse.com/javascript/" class="btn btn-info">詳細資料<span class="glyphicon glyphicon-chevron-right"></span></a></p>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <script src="../Scripts/jquery-3.1.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery-ui-effects.min.js"></script>
+    <script src="../Scripts/jquery-3.1.1.min.js"></script>
+    <asp:ContentPlaceHolder id="footer" runat="server">
+        </asp:ContentPlaceHolder>
+</body>
+</html>

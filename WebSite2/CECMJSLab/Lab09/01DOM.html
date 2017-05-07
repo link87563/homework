@@ -5,18 +5,35 @@
     <title>01DOM.html</title>
     <script >
         window.onload = function () {
-            alert(document.nodeType);  //9
-            alert(document.nodeName);  //#document
-            alert(document.nodeValue);  //null
+            //alert(document.nodeType);  //9
+            //alert(document.nodeName);  //#document
+            //alert(document.nodeValue);  //null
 
             //取得根元素 documentElement
             var root = document.documentElement;
-            
+            //alert(root.nodeType);  //1
+            //alert(root.nodeName);  //HTML
+            //alert(root.nodeValue);  //null
 
             var thebody = root.childNodes[1];  //BODY
-
+            //alert(thebody.nodeName);  //BODY
+            //alert(thebody.childNodes[1].nodeName);  //P
+            //alert(thebody.childNodes[1].firstChild.nodeValue);  //I am a JavaScript
 
             var theNode = root.childNodes[1].childNodes[3].childNodes[3];  //LI
+            //alert(root.childNodes[1].childNodes[3].nodeName);  //UL
+            //alert(theNode.nodeName);  //LI
+            //alert(theNode.firstChild.nodeValue);  //bbbbb
+            //alert(theNode.previousSibling.previousSibling.firstChild.nodeValue);  //aaaa
+            //alert(theNode.nextSibling.nextSibling.firstChild.nodeValue);  //ccccc
+            //alert(theNode.parentNode.nodeName);  //UL
+            //alert(theNode.parentNode.lastChild.previousSibling.firstChild.nodeValue);
+
+            var lis = document.getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+                //alert(lis.item(i).firstChild.nodeValue);
+                alert(lis[i].firstChild.nodeValue);
+            }
         }
     </script>
 </head><body><h1>Hello DOM</h1><p>I am a JavaScript</p>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -16,8 +16,13 @@
 
 			var eleImg = document.createElement("img");
 			eleImg.setAttribute("src","DOM/DOMImage/rabbit-hat.gif");
+			eleImg.setAttribute("id", "idimg");
 
 			theDIV.appendChild(eleImg);
+		}
+		function RemoveElement() {
+		    var theNode = document.getElementById("idimg");
+		    theNode.parentNode.removeChild(theNode);
 		}
 		</script>
 	</head>
@@ -25,6 +30,6 @@
 	<body>
 		<div id="iddiv">div</div>
 		<input type="button" value="CreateElement"  onclick="CreateElement();">
-		
+        <input type="button" value="RemoveElement" onclick="RemoveElement();">
 	</body>
 </html>

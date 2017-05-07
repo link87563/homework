@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            document.getElementById("username").onblur = ckname;
+            document.getElementById("pwd").onblur = chpwd;
+            document.getElementById("date").onblur = chdate;
+        };
+        function ckname() {
+            var thename = document.getElementById("username").value;
+            if (thename == "") {
+                document.getElementById("spname").innerHTML = "<img src='Images/error.png'/>You must input your name";
+            }
+            else {
+                var re = /^[\u4E00-\u9fa5]{2}$/;
+                if (re.test(thename)) {
+                    document.getElementById("spname").innerHTML = "<img src='Images/check.ico'/><span style=color:green;>OK";
+                }
+                else {
+                    document.getElementById("spname").innerHTML = "<img src='Images/error.png'/>Please input chinese and over 2 words";
+                }
+            }
+        }
+        function chpwd() {
+            var thepwd = document.getElementById("pwd").value;
+            if (thepwd == "") {
+                document.getElementById("sppwd").innerHTML = "<img src='Images/error.png'/>You must input your password";
+            }
+            else {
+                var re = /^(?=.*[a-z].*\d).{6,}$/;
+                if (re.test(thepwd)) {
+                    document.getElementById("sppwd").innerHTML = "<img src='Images/check.ico'/><span style=color:green;>OK";
+                }
+                else {
+                    document.getElementById("sppwd").innerHTML = "<img src='Images/error.png'/>Please input over 6 words and a-z or #@!%&*$ or 0-9";
+                }
+            }
+        }
+        function chdate() {
+            var thedate = document.getElementById("date").value;
+            if (thedate == "") {
+                document.getElementById("spdate").innerHTML = "<img src='Images/error.png'/>You must input date";
+            }
+            else {
+                var Regex = new RegExp(/^[0-9]{4}[/](0?[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])$/);
+                if (Regex.test(thedate)) {
+                    datearry = thedate.split("/");
+                    var date = new Date(datearry);
+                    if (eval(date.getMonth() + 1) == datearry[1]) {
+                        document.getElementById("spdate").innerHTML = "<img src='Images/check.ico'/><span style=color:green;>OK";
+                    }
+                    else {
+                        document.getElementById("spdate").innerHTML = "<img src='Images/error.png'/>Please input right date";
+                    }
+                }
+                else {
+                    document.getElementById("spdate").innerHTML = "<img src='Images/error.png'/>Please input right date";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <article>
+            <form method="post">
+                <fieldset>
+                    <legend>HomeWork</legend>
+                    <div class="st1">
+                        <label>Name:</label>
+                        <input type="text" id="username" name="username" />
+                        <span id="spname"></span>
+                        <br />
+                        <label class="st2">(1.不可空白，2.至少兩個字以上，3.必須全部為中文字)</label>
+                    </div>
+                    <div class="st1">
+                        <label>Password:</label>
+                        <input type="password" id="pwd" name="pwd" />
+                        <span id="sppwd"></span>
+                        <br />
+                        <label class="st2">(1.不可空白，2.至少6個字且必須包含英文、數字、特殊字元[!@#$%^&*])</label>
+                    </div>
+                    <div class="st1">
+                        <label>Date:</label>
+                        <input type="text" id="date" name="date" />
+                        <span id="spdate"></span>
+                        <br />
+                        <label class="st2">格式:西元年/月/日 yyyy/MM/dd</label>
+                    </div>
+                    <div class="st3">
+                        <input type="button" id="confim" value="Confim" />
+                        <input type="reset" value="Clear" />
+                    </div>
+                </fieldset>
+            </form>
+        </article>
+    </div>
+</body>
+</html>

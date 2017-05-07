@@ -4,7 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>08eventObjectDemo.html</title>
     <script>
-        
+        document.oncontextmenu = function (ns) {
+            if (ns.preventDefault) 
+                ns.preventDefault();
+            else
+            ns.returnValue = true;
+        }
        
     </script>
 </head>
